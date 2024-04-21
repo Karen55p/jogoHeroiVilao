@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Prova - Jogo Herói e Vilão</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Importa a biblioteca Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- Container dos personagens para ficarem separados do histórico de batalha -->
+    <div class="personagens-contaiparner">
+        <!-- Classe do personagem voltada para o Herói-->
+        <div class="personagem">
+            <!-- Define sua barra de vida, imagem, nome e botões de ação na classe ações -->
+            <div class="barra-vida" :style="{width: heroi.vida + '%'}">{{ heroi.vida }}%</div>
+            <div class="sprite"></div>
+            <h1>Tenten</h1>
+            <div class="acoes">
+                <!-- Botões apenas aparecem enquanto o botão de reinicar não aparecer -->
+                <button v-if="!mostrarBotaoReiniciar" @click="atacar(true)">Atacar</button>
+                <button v-if="!mostrarBotaoReiniciar" @click="defender(true)">Defender</button>
+                <button v-if="!mostrarBotaoReiniciar" @click="usarPocao(true)">Usar Poção</button>
+                <button v-if="!mostrarBotaoReiniciar" @click="correr(true)">Correr</button>
+            </div>
+        </div>
+        <!-- Classe personagem voltada para o vilão -->
+        <div class="personagem" >
+            <div class="barra-vida" :style="{width: vilao.vida + '%'}">{{ vilao.vida }}%</div>
+            <div class="sprite2"></div>
+            <h1>Madara</h1>
+        </div>
+    </div>
+    <!-- Classe para mostrar o histórico de batalha -->
+    <div class="historia">
+        <h2>Histórico de Batalha</h2>
+        <p v-for="mensagem in mensagens" :key="mensagem.id">{{ mensagem.texto }}</p>
+        <!-- Botão aparece somente ao final da batalha -->
+        <button v-if="mostrarBotaoReiniciar" @click="reiniciar">Reiniciar</button>
+    </div>
+</div>
+</body>
+</html>
+<script src="index.js"></script>

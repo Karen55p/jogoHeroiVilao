@@ -1,0 +1,93 @@
+#app {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.personagem {
+    background-color: white;
+    border: 2px solid #1d509f;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.acoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d509f;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #1a355e;
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.barra-vida {
+    height: 30px;
+    background-color: #4CAF50;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.sprite,
+.sprite2 {
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* Adiciona imagens diferentes para os personagens */
+.sprite {
+    background-image: url('https://imgs.search.brave.com/KA4c9ySd7p2jA9lxtLjYQwJa5yXWVtuJhKEu71TMb0E/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYzODY1/OTYuanBn');
+}
+
+.sprite2 {
+    background-image: url('https://imgs.search.brave.com/-DbGILoiedpRp-KIJ7SDGIHuwHZDGa7dX0Ue-xrKz4Y/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jcml0/aWNhbGhpdHMuY29t/LmJyL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIzLzAzL21hZGFy/YS0xLTc2OHg0MDIt/MS5qcGc');
+}
+
+/* Define os estilos para o histórico de batalha */
+.historia {
+    min-height: calc(100vh - 120px);
+    max-height: 300px;
+    overflow-y: auto; /* Para rolar o histórico quando necessário */
+    background-color: white;
+    border: 2px solid #1d509f;
+    border-radius: 5px;
+    overflow: auto;
+    flex: 1;
+    max-width: calc(50% - 20px);
+    padding: 10px;
+}
+
+/* Define o container dos personagens */
+.personagens-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
